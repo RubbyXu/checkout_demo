@@ -2,20 +2,35 @@
 A typescript project to simulate a checkout scan system.
 
 # Design
-- Components 
+## Components 
 There are mainly two components in this project: Checkout and Policy handlers.  
     - Checkout is a Class and it provides two functions: total() and scan(). 
     - Function total() will return the final items amount. 
     - Function scan() will scan each item and apply the policies, it will calulate the total amount at the same time. The input of scan() is single product information.  
 
-- Input
+Files Structure
+src/
+-- index.ts            // Create Checkout class, call scan() function
+-- checkout.ts         // Checkout class
+-- policyHandlers.ts   // Policy handlers
+-- interfaces.ts/      // All interfaces defined
+-- policies.ts/        // All policies pre-defined
+-- products.ts/        // Products pre-defined with policy
+
+test/
+-- checkout.test.ts    // Unit test for Checkout
+-- data.ts             // Test data
+
+Other files:
+Other files under root directory are docs and necessary config files, which are used to support running the system. 
+## Input
 And there are two lists as input: policy list and product list, that container poliy and product information, like below: 
-    - Policy list: 
+  - Policy list: 
 ```
     { sku: "atv", name: "POLICY_BUY_MORE_SAVE", policyParams: { minNumber: 3, savedNumber: 1 } },
     { sku: "ipd", name: "POLICY_BULK_FIXED_PRICE", policyParams: { minNumber: 4, fixedPrice: 499.99 } },
 ```
-    - Product list:
+  - Product list: 
 ```
     { sku: "ipd", name: "Super iPad", price: 549.99 },
     { sku: "atv", name: "Apple TV", price: 109.5 },
@@ -23,7 +38,7 @@ And there are two lists as input: policy list and product list, that container p
     { sku: "other", name: "Other item", price: 100.0 }
 ```
 
-- Scan working flow
+## Scan working flow
 Take a example to explain the working flow. 
   - There are two property 'total' and 'items' defined in Class Checkout. 
     Property total will save total amount of saved items.  
@@ -42,27 +57,12 @@ Take a example to explain the working flow.
    { sku: "atv", name: "POLICY_BUY_MORE_SAVE", policyParams: { minNumber: 3, savedNumber: 1 } }
    If he wants to change the policy from 'buy 3 take 1 free' to 'buy 6 take 2 free', he could just update the policy list for that sku. 
 
-# Env setup
+## Env setup and start running
 - Node version: v18 (in development and test environment, node version is v18.4.0)
 - Run `npm install` to install dependencies.
 - Run `npm run build` to build typescript. 
 - Run `npm run start` to scan items.
 
-# Usage
-Define policy list(Refer to ./src/policies.ts)
-```
-const checkout = new Checkout(policyList);
-checkout.scan({ sku: "atv", name: "Apple TV", price: 109.5 })
-checkout.scan({ sku: "ipd", name: "Super iPad", price: 549.99 })
-checkout.scan({ sku: "ipd", name: "Super iPad", price: 549.99 })
-checkout.scan({ sku: "atv", name: "Apple TV", price: 109.5 })
-checkout.scan({ sku: "ipd", name: "Super iPad", price: 549.99 })
-checkout.scan({ sku: "ipd", name: "Super iPad", price: 549.99 })
-checkout.scan({ sku: "ipd", name: "Super iPad", price: 549.99 })
+## Test 
 
-console.log('Total amount after scan above items: ', checkout.total()) 
-```
-
-# Test 
-
-- Run `npm run unit:test` for unit testing.
+- Run `npm run test` for unit testing.
