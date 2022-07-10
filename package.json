@@ -1,0 +1,27 @@
+{
+  "name": "checkout_demo",
+  "version": "1.0.0",
+  "description": "A typescript project to demo a checkout scan system.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kathydingcn/checkout_demo.git"
+  },
+  "keywords": [],
+  "author": "Kathy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kathydingcn/checkout_demo/issues"
+  },
+  "homepage": "https://github.com/kathydingcn/checkout_demo#readme",
+  "devDependencies": {
+    "@types/jest": "^28.1.4",
+    "jest": "^28.1.2",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.4"
+  }
+}
