@@ -6,8 +6,8 @@ A typescript project to simulate a checkout scan system.
 There are mainly two components in this project: Checkout and Policy handlers.  
 - Checkout is a Class and it provides two functions: total() and scan(). 
 - Function total() will return the final items amount. 
-- Function scan() will scan each item and apply the policies, it will calulate the total amount at the same time. The input of scan() is single product information.  
-
+- Function scan() will scan each item and apply the policy handler.    
+- Policy handlers could handler different kinds of pricing policies, it will calulate the total amount and return it to scan().  
 ## Files Structure
 ```
 - src/
