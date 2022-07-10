@@ -25,8 +25,8 @@ There are mainly two components in this project: Checkout and Policy handlers.
 Other files:
 Other files under root directory are docs and necessary config files, which are used to support running the system. 
 ```
-## Input
-And there are two lists as input: policy list and product list, that container poliy and product information, like below: 
+## Pre-defined Input
+There should be two lists existing as pre-defined input: policy list and product list, that container poliy and product information, like below: 
   - Policy list: 
 ```
     { sku: "atv", name: "POLICY_BUY_MORE_SAVE", policyParams: { minNumber: 3, savedNumber: 1 } },
