@@ -1,5 +1,4 @@
 import { IItem, IPolicy } from './interfaces'
-import { policyList } from './policies'
 import { policiesHandler } from './policyHandlers'
 
 
@@ -18,7 +17,7 @@ import { policiesHandler } from './policyHandlers'
  * console.log('checkout total', checkout.total())
  */
 class Checkout {
-    private _total: number = 0;
+    private _total = 0;
     private _items: IItem[] = [];
     policyList: IPolicy[];
 
@@ -29,8 +28,8 @@ class Checkout {
         const policy = this.policyList.find((p) => p.sku === item.sku)
 
         if (policy) {
-            let itemsInfo = { total: this._total, item, items: this._items }
-            let policyParams = policy.policyParams
+            const itemsInfo = { total: this._total, item, items: this._items }
+            const policyParams = policy.policyParams
             this._total = policiesHandler[policy.name](itemsInfo, policyParams)
 
         } else {

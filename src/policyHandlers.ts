@@ -23,7 +23,8 @@ import { POLICY_BUY_MORE_SAVE, POLICY_BULK_FIXED_PRICE, POLICY_BULK_DISCOUNT } f
 const policiesHandler: IPolicyHandler = {
     [POLICY_BUY_MORE_SAVE]: (itemsInfo: IItemsInfo, policyParams: IParamsBuyMoreSave) => {
         const { minNumber, savedNumber } = policyParams;
-        let { item, total, items } = itemsInfo;
+        const { item, items } = itemsInfo;
+        let { total } = itemsInfo;
 
         items.push(item);
 
@@ -39,7 +40,8 @@ const policiesHandler: IPolicyHandler = {
     },
     [POLICY_BULK_FIXED_PRICE]: (itemsInfo: IItemsInfo, policyParams: IParamsBulkFixedPrice) => {
         const { minNumber, fixedPrice } = policyParams;
-        let { item, total, items } = itemsInfo;
+        const { item, items } = itemsInfo;
+        let { total } = itemsInfo;
 
         const theItems = items.filter(i => i.sku === item.sku)
         if (theItems.length === minNumber) {
@@ -58,7 +60,8 @@ const policiesHandler: IPolicyHandler = {
     },
     [POLICY_BULK_DISCOUNT]: (itemsInfo: IItemsInfo, policyParams: IParamsBulkDiscount) => {
         const { minNumber, discount } = policyParams;
-        let { item, total, items } = itemsInfo;
+        const { item, items } = itemsInfo;
+        let { total } = itemsInfo;
         const discountPrice = item.price * discount;
         const theItems = items.filter(i => i.sku === item.sku)
 

@@ -4,10 +4,11 @@ export interface IItem {
     price: number;
 }
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface IPolicyHandler {
     [name: string]: any;
 }
-
+/* eslint-enable @typescript-eslint/no-explicit-any */
 export interface IParamsBuyMoreSave {
     minNumber: number;
     savedNumber: number;

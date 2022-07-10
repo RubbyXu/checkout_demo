@@ -35,7 +35,7 @@ Take a example to explain the working flow.
   - In above way, scan() could always get the latest total amount and update the property 'total accordingly.
 
 - Add/update policy
-   - When retail manger wants to add new policy, he only need to add the new policy handler, don't need to change other existing code. 
+   - When retail manger wants to add new policy, he only need to add the new policy handler, don't need to change other existing code(like checkout part). 
    - Retail manger could easily re-use current policy and adjust the parameters, and don't need to update code. 
    - This could make it is flexiable and extendable to add or update policy.
    For example:   
@@ -43,7 +43,10 @@ Take a example to explain the working flow.
    If he wants to change the policy from 'buy 3 take 1 free' to 'buy 6 take 2 free', he could just update the policy list for that sku. 
 
 # Env setup
+- Node version: v18 (in development and test environment, node version is v18.4.0)
 - Run `npm install` to install dependencies.
+- Run `npm run build` to build typescript. 
+- Run `npm run start` to scan items.
 
 # Usage
 Define policy list(Refer to ./src/policies.ts)
