@@ -4,25 +4,27 @@ A typescript project to simulate a checkout scan system.
 # Design
 ## Components 
 There are mainly two components in this project: Checkout and Policy handlers.  
-    - Checkout is a Class and it provides two functions: total() and scan(). 
-    - Function total() will return the final items amount. 
-    - Function scan() will scan each item and apply the policies, it will calulate the total amount at the same time. The input of scan() is single product information.  
+- Checkout is a Class and it provides two functions: total() and scan(). 
+- Function total() will return the final items amount. 
+- Function scan() will scan each item and apply the policies, it will calulate the total amount at the same time. The input of scan() is single product information.  
 
-Files Structure
-src/
--- index.ts            // Create Checkout class, call scan() function
--- checkout.ts         // Checkout class
--- policyHandlers.ts   // Policy handlers
--- interfaces.ts/      // All interfaces defined
--- policies.ts/        // All policies pre-defined
--- products.ts/        // Products pre-defined with policy
+## Files Structure
+```
+- src/
+  - index.ts            // Create Checkout class, call scan() function
+  - checkout.ts         // Checkout class
+  - policyHandlers.ts   // Policy handlers
+  - interfaces.ts/      // All interfaces defined
+  - policies.ts/        // All policies pre-defined
+  - products.ts/        // Products pre-defined with policy
 
-test/
--- checkout.test.ts    // Unit test for Checkout
--- data.ts             // Test data
+- test/
+  - checkout.test.ts    // Unit test for Checkout
+  - data.ts             // Test data
 
 Other files:
 Other files under root directory are docs and necessary config files, which are used to support running the system. 
+```
 ## Input
 And there are two lists as input: policy list and product list, that container poliy and product information, like below: 
   - Policy list: 
