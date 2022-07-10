@@ -3,6 +3,20 @@ import { policyList } from './policies'
 import { policiesHandler } from './policyHandlers'
 
 
+/**
+ * Properties:
+ * _total is used to save the total amount for all scaned items. 
+ * _items is used to save the total scaned items. 
+ * 
+ * Functions:
+ * scan() input is single item information. For example: { sku: "ipd", name: "Super iPad", price: 549.99 }
+ * total() will return total amount. 
+ * 
+ * Usage for scan:
+ * const checkout = new Checkout(policyList);
+ * checkout.scan({ sku: "atv", name: "Apple TV", price: 109.5 })
+ * console.log('checkout total', checkout.total())
+ */
 class Checkout {
     private _total: number = 0;
     private _items: IItem[] = [];
@@ -33,29 +47,3 @@ class Checkout {
 }
 
 export default Checkout;
-const checkout = new Checkout(policyList);
-// let checkout = new Checkout([]);
-
-//   { sku: "ipd", name: "Super iPad", price: 549.99 },
-//   { sku: "ipd", name: "Super iPad", price: 549.99 },
-//   { sku: "atv", name: "Apple TV", price: 109.5 },
-//   { sku: "vga", name: "VGA Adapter", price: 30.0 }
-
-
-
-// checkout.scan({ sku: "atv", name: "Apple TV", price: 109.5 })
-// checkout.scan({ sku: "atv", name: "Apple TV", price: 109.5 })
-// checkout.scan({ sku: "atv", name: "Apple TV", price: 109.5 })
-// checkout.scan({ sku: "vga", name: "VGA Adapter", price: 30.0 })
-
-//atv, ipd, ipd, atv, ipd, ipd, ipd
-checkout.scan({ sku: "atv", name: "Apple TV", price: 109.5 })
-checkout.scan({ sku: "ipd", name: "Super iPad", price: 549.99 })
-checkout.scan({ sku: "ipd", name: "Super iPad", price: 549.99 })
-checkout.scan({ sku: "atv", name: "Apple TV", price: 109.5 })
-checkout.scan({ sku: "ipd", name: "Super iPad", price: 549.99 })
-checkout.scan({ sku: "ipd", name: "Super iPad", price: 549.99 })
-checkout.scan({ sku: "ipd", name: "Super iPad", price: 549.99 })
-
-console.log('checkout total', checkout.total())
-console.log('checkout items', checkout.items())
